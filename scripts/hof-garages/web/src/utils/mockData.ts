@@ -1,0 +1,157 @@
+import { GarageUIData, VehicleDatabase, VehicleState, VehicleType, GarageType } from '../types/garage';
+
+export const mockVehicleDatabase: VehicleDatabase = {
+  'adder': { brand: 'Truffade', name: 'Adder' },
+  'zentorno': { brand: 'Pegassi', name: 'Zentorno' },
+  'sultan': { brand: 'Karin', name: 'Sultan' },
+  'elegy': { brand: 'Annis', name: 'Elegy RH8' },
+  'infernus': { brand: 'Pegassi', name: 'Infernus' },
+  'bullet': { brand: 'Vapid', name: 'Bullet' },
+  'banshee': { brand: 'Bravado', name: 'Banshee' },
+  'comet': { brand: 'Pfister', name: 'Comet' },
+  'carbonizzare': { brand: 'Grotti', name: 'Carbonizzare' },
+  'voltic': { brand: 'Coil', name: 'Voltic' },
+};
+
+export const mockGarageData: GarageUIData = {
+  garageName: 'legion_square',
+  garageInfo: {
+    label: 'Legion Square Garage',
+    vehicleType: VehicleType.CAR,
+  },
+  vehicles: [
+    {
+      id: 1001,
+      citizenid: 'ABC12345',
+      modelName: 'adder',
+      plate: 'FAST123',
+      garage: 'legion_square',
+      state: VehicleState.GARAGED,
+      depotPrice: 0,
+      props: {
+        engineHealth: 950,
+        bodyHealth: 850,
+        fuelLevel: 75,
+        plate: 'FAST123',
+      },
+    },
+    {
+      id: 1002,
+      citizenid: 'ABC12345',
+      modelName: 'zentorno',
+      plate: 'SPEED99',
+      garage: 'legion_square',
+      state: VehicleState.OUT,
+      depotPrice: 0,
+      props: {
+        engineHealth: 1000,
+        bodyHealth: 1000,
+        fuelLevel: 90,
+        plate: 'SPEED99',
+      },
+    },
+    {
+      id: 1003,
+      citizenid: 'ABC12345',
+      modelName: 'sultan',
+      plate: 'DRIFT01',
+      garage: 'legion_square',
+      state: VehicleState.GARAGED,
+      depotPrice: 0,
+      props: {
+        engineHealth: 750,
+        bodyHealth: 600,
+        fuelLevel: 45,
+        plate: 'DRIFT01',
+      },
+    },
+    {
+      id: 1004,
+      citizenid: 'ABC12345',
+      modelName: 'elegy',
+      plate: 'TUNER88',
+      garage: 'legion_square',
+      state: VehicleState.IMPOUNDED,
+      depotPrice: 2500,
+      props: {
+        engineHealth: 800,
+        bodyHealth: 700,
+        fuelLevel: 60,
+        plate: 'TUNER88',
+      },
+    },
+    {
+      id: 1005,
+      citizenid: 'ABC12345',
+      modelName: 'infernus',
+      plate: 'FLAME77',
+      garage: 'legion_square',
+      state: VehicleState.GARAGED,
+      depotPrice: 0,
+      props: {
+        engineHealth: 900,
+        bodyHealth: 950,
+        fuelLevel: 85,
+        plate: 'FLAME77',
+      },
+    },
+    {
+      id: 1006,
+      citizenid: 'ABC12345',
+      modelName: 'bullet',
+      plate: 'BULLET1',
+      garage: 'legion_square',
+      state: VehicleState.GARAGED,
+      depotPrice: 0,
+      props: {
+        engineHealth: 300,
+        bodyHealth: 200,
+        fuelLevel: 15,
+        plate: 'BULLET1',
+      },
+    },
+  ],
+  accessPoint: 1,
+};
+
+export const mockDepotGarageData: GarageUIData = {
+  garageName: 'impound_lot',
+  garageInfo: {
+    label: 'Impound Lot',
+    type: GarageType.DEPOT,
+    vehicleType: VehicleType.CAR,
+  },
+  vehicles: [
+    {
+      id: 2001,
+      citizenid: 'ABC12345',
+      modelName: 'banshee',
+      plate: 'SEIZED1',
+      garage: 'impound_lot',
+      state: VehicleState.OUT,
+      depotPrice: 3500,
+      props: {
+        engineHealth: 800,
+        bodyHealth: 750,
+        fuelLevel: 40,
+        plate: 'SEIZED1',
+      },
+    },
+    {
+      id: 2002,
+      citizenid: 'ABC12345',
+      modelName: 'comet',
+      plate: 'SEIZED2',
+      garage: 'impound_lot',
+      state: VehicleState.OUT,
+      depotPrice: 1500,
+      props: {
+        engineHealth: 650,
+        bodyHealth: 600,
+        fuelLevel: 25,
+        plate: 'SEIZED2',
+      },
+    },
+  ],
+  accessPoint: 1,
+};

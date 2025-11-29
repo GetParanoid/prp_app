@@ -1,0 +1,63 @@
+:root {
+  /* System Color Palette */
+  --primary-bg: #1a1b1e;
+  --secondary-bg: #25262b;
+  --surface-bg: #2c2e33;
+  
+  /* Accent Colors with Glow  */
+  --blue-primary: #228be6;
+  --green-primary: #51cf66;
+  --red-primary: #fa5252;
+  --yellow-primary: #ffd43b;
+  --cyan-primary: #22d3ee;
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-dimmed: #9ca3af;
+  
+  /* Responsive Variables */
+  --scale-factor: 1;
+  --border-radius: 8px;
+  --box-shadow-blur: 10px;
+  --padding: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  background: transparent !important;
+  overflow: hidden;
+  height: 100vh;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* Override Mantine's body background  */
+body,
+html,
+#root,
+[data-mantine-color-scheme="dark"],
+[data-mantine-color-scheme="light"],
+[data-mantine-color-scheme] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Force all Mantine components to inherit our transparent background */
+* {
+  --mantine-color-body: transparent !important;
+  --mantine-color-dark-7: transparent !important;
+  --mantine-color-dark-8: transparent !important;
+  --mantine-color-dark-9: transparent !important;
+}

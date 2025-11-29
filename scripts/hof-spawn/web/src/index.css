@@ -1,0 +1,30 @@
+body {
+  height: 100vh;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+  background: transparent !important;
+}
+
+/* Override Mantine default backgrounds */
+html,
+body,
+#root,
+.mantine-Container-root,
+.mantine-AppShell-root {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

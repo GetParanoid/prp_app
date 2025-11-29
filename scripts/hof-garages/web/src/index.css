@@ -1,0 +1,386 @@
+
+:root {
+  --scale-factor: 1;
+  --border-radius: 4px;
+  --box-shadow-blur: 10px;
+  --padding: 8px;
+  --margin: 8px;
+  
+  /* Color Palette */
+  --primary-bg: #1a1b1e;
+  --secondary-bg: #25262b;
+  --surface-bg: #2c2e33;
+  
+  --blue-primary: #228be6;
+  --green-primary: #51cf66;
+  --red-primary: #fa5252;
+  --yellow-primary: #ffd43b;
+  --cyan-primary: #22d3ee;
+  
+  --text-primary: #ffffff;
+  --text-dimmed: #9ca3af;
+  
+  /* Responsive Scaling */
+  --scale-vh: calc(1vh * var(--scale-factor));
+  --scale-vw: calc(1vw * var(--scale-factor));
+}
+
+/* Base Reset with Theme */
+body {
+  height: 100vh;
+  user-select: none;
+  margin: 0;
+  background: transparent !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-primary);
+}
+
+#root {
+  height: 100%;
+  background: transparent !important;
+}
+
+/* Override Mantine global styles with theme */
+html {
+  background: transparent !important;
+}
+
+[data-mantine-color-scheme="dark"] {
+  background: transparent !important;
+}
+
+.mantine-AppShell-root,
+.mantine-Container-root {
+  background: transparent !important;
+}
+
+/* Design Mixins as CSS Classes */
+.glow-blue {
+  box-shadow: 0 0 var(--box-shadow-blur) var(--blue-primary);
+  transition: all 0.3s ease-out;
+}
+
+.glow-green {
+  box-shadow: 0 0 var(--box-shadow-blur) var(--green-primary);
+  transition: all 0.3s ease-out;
+}
+
+.glow-red {
+  box-shadow: 0 0 var(--box-shadow-blur) var(--red-primary);
+  transition: all 0.3s ease-out;
+}
+
+.glow-yellow {
+  box-shadow: 0 0 var(--box-shadow-blur) var(--yellow-primary);
+  transition: all 0.3s ease-out;
+}
+
+.text-glow-blue {
+  text-shadow: 0 0 calc(var(--box-shadow-blur) * 0.5) var(--blue-primary);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 calc(var(--box-shadow-blur) * 0.5) var(--green-primary);
+}
+
+.smooth-transition {
+  transition: all 0.3s ease-out;
+}
+
+/* Scrollbar Styling */
+.hud-scrollbar::-webkit-scrollbar {
+  width: calc(8px * var(--scale-factor));
+}
+
+.hud-scrollbar::-webkit-scrollbar-track {
+  background: var(--surface-bg);
+  border-radius: var(--border-radius);
+  box-shadow: inset 0 0 calc(var(--box-shadow-blur) * 0.5) rgba(0, 0, 0, 0.3);
+}
+
+.hud-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--blue-primary), var(--cyan-primary));
+  border-radius: var(--border-radius);
+  border: 1px solid var(--secondary-bg);
+  transition: all 0.3s ease-out;
+}
+
+.hud-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, var(--cyan-primary), var(--blue-primary));
+  box-shadow: 0 0 var(--box-shadow-blur) var(--blue-primary);
+}
+
+.hud-scrollbar::-webkit-scrollbar-thumb:active {
+  background: var(--blue-primary);
+  box-shadow: 0 0 calc(var(--box-shadow-blur) * 1.5) var(--blue-primary);
+}
+
+.hud-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue-primary) var(--surface-bg);
+}
+
+/* Card Component */
+.hud-card {
+  background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--surface-bg) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.hud-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blue-primary), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.hud-card:hover {
+  transform: translateY(calc(-2px * var(--scale-factor)));
+  border-color: var(--blue-primary);
+  box-shadow: 0 0 var(--box-shadow-blur) rgba(34, 139, 230, 0.3);
+}
+
+.hud-card:hover::before {
+  opacity: 1;
+}
+
+/* Button Styling */
+.hud-button {
+  background: linear-gradient(135deg, var(--blue-primary) 0%, var(--cyan-primary) 100%);
+  border: none;
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  padding: calc(var(--padding) * 0.75) var(--padding);
+  font-size: calc(12px * var(--scale-factor));
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hud-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease-out;
+}
+
+.hud-button:hover {
+  transform: translateY(calc(-1px * var(--scale-factor))) scale(1.02);
+  box-shadow: 0 0 var(--box-shadow-blur) var(--blue-primary);
+}
+
+.hud-button:hover::before {
+  left: 100%;
+}
+
+.hud-button:active {
+  transform: scale(0.98);
+}
+
+/* Success Button Variant */
+.hud-button-success {
+  background: linear-gradient(135deg, var(--green-primary) 0%, #40c057 100%);
+}
+
+.hud-button-success:hover {
+  box-shadow: 0 0 var(--box-shadow-blur) var(--green-primary);
+}
+
+/* Danger Button Variant */
+.hud-button-danger {
+  background: linear-gradient(135deg, var(--red-primary) 0%, #e03131 100%);
+}
+
+.hud-button-danger:hover {
+  box-shadow: 0 0 var(--box-shadow-blur) var(--red-primary);
+}
+
+/* Warning Button Variant */
+.hud-button-warning {
+  background: linear-gradient(135deg, var(--yellow-primary) 0%, #fab005 100%);
+  color: var(--primary-bg);
+}
+
+.hud-button-warning:hover {
+  box-shadow: 0 0 var(--box-shadow-blur) var(--yellow-primary);
+}
+
+/* Input Styling */
+.hud-input {
+  background: var(--surface-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  padding: var(--padding);
+  font-size: calc(12px * var(--scale-factor));
+  transition: all 0.3s ease-out;
+}
+
+.hud-input:focus {
+  outline: none;
+  border-color: var(--blue-primary);
+  box-shadow: 0 0 var(--box-shadow-blur) rgba(34, 139, 230, 0.3);
+}
+
+.hud-input::placeholder {
+  color: var(--text-dimmed);
+}
+
+/* Badge Styling */
+.hud-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: calc(var(--padding) * 0.25) calc(var(--padding) * 0.5);
+  border-radius: calc(var(--border-radius) * 2);
+  font-size: calc(10px * var(--scale-factor));
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease-out;
+}
+
+.hud-badge-success {
+  background: rgba(81, 207, 102, 0.2);
+  color: var(--green-primary);
+  border: 1px solid var(--green-primary);
+}
+
+.hud-badge-warning {
+  background: rgba(255, 212, 59, 0.2);
+  color: var(--yellow-primary);
+  border: 1px solid var(--yellow-primary);
+}
+
+.hud-badge-danger {
+  background: rgba(250, 82, 82, 0.2);
+  color: var(--red-primary);
+  border: 1px solid var(--red-primary);
+}
+
+.hud-badge-info {
+  background: rgba(34, 139, 230, 0.2);
+  color: var(--blue-primary);
+  border: 1px solid var(--blue-primary);
+}
+
+/* Progress Bar Styling */
+.hud-progress {
+  background: var(--surface-bg);
+  border-radius: calc(var(--border-radius) * 2);
+  overflow: hidden;
+  height: calc(6px * var(--scale-factor));
+  position: relative;
+}
+
+.hud-progress-bar {
+  height: 100%;
+  border-radius: inherit;
+  transition: all 0.3s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.hud-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.hud-progress-success .hud-progress-bar {
+  background: linear-gradient(90deg, var(--green-primary), #40c057);
+  box-shadow: 0 0 calc(var(--box-shadow-blur) * 0.3) var(--green-primary);
+}
+
+.hud-progress-warning .hud-progress-bar {
+  background: linear-gradient(90deg, var(--yellow-primary), #fab005);
+  box-shadow: 0 0 calc(var(--box-shadow-blur) * 0.3) var(--yellow-primary);
+}
+
+.hud-progress-danger .hud-progress-bar {
+  background: linear-gradient(90deg, var(--red-primary), #e03131);
+  box-shadow: 0 0 calc(var(--box-shadow-blur) * 0.3) var(--red-primary);
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(calc(10px * var(--scale-factor)));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Breakpoints */
+@media (max-width: 1366px) {
+  :root {
+    --scale-factor: 0.85;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --scale-factor: 0.7;
+  }
+}
+
+@media (min-width: 2560px) {
+  :root {
+    --scale-factor: 1.5;
+  }
+}
+
+@media (min-width: 3840px) {
+  :root {
+    --scale-factor: 2.0;
+  }
+}

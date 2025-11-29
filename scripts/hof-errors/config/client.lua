@@ -1,0 +1,35 @@
+return {
+    errorWords = {
+        "failure",
+        "error",
+        "failed",
+        "not",
+        "not safe",
+        "invalid",
+        "cannot",
+        ".lua",
+        "server",
+        "client",
+        "attempt",
+        "traceback",
+        "stack",
+        "function",
+        --? Possible false positives below, use with caution
+        "nil",
+        "no such",
+        "bad argument",
+        "expected",
+        "script",
+        "exception",
+        "panic",
+        "crash",
+        "unhandled",
+        "timeout",
+        "denied",
+        "refused",
+        "missing",
+        "unknown",
+        "syntax",
+        "warning"
+    }
+}
